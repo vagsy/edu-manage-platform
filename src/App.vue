@@ -1,32 +1,61 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
+    <!-- 跟路由出口 -->
     <router-view/>
   </div>
 </template>
+<!-- Options API -->
+<!--<script lang="ts">
+// 1. 编辑器给的类型提示
+// 2. TypeScript 编译期间的类型验证
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+import Vue from 'vue'
+export default Vue.extend({
+  data () {
+    return {
+      a: 1,
+      b: '2',
+      c: [],
+      d: {
+        a: 1,
+        b: '2'
+      }
     }
   }
+})
+</script>-->
+
+<!-- ClassAPI -->
+<!-- <script lang="ts">
+import Vue from 'vue'
+import Component from 'vue-class-component'
+
+@Component // 调用类的装饰器
+export default class App extends Vue {
+  a = 1
+  b = '2'
+  c = {
+    a: 1,
+    b: '2'
+  }
+
+  test () {
+    console.log(this.a)
+    // this.b
+    // this.a.abc()
+  }
+
+  created () {
+    console.log('app created')
+  }
 }
-</style>
+</script>-->
+<script lang="ts">
+import Vue from 'vue'
+
+export default Vue.extend({
+  name: 'App'
+})
+</script>
+
+<style lang="scss" scoped></style>
