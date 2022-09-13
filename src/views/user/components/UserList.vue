@@ -1,7 +1,7 @@
 <template>
   <el-card>
     <div slot="header">
-      <el-form :model="filterParams" ref="filter-form">
+      <el-form :model="filterParams" :inline="true" ref="filter-form">
         <el-form-item label="手机号" prop="phone">
           <el-input v-model="filterParams.phone"></el-input>
         </el-form-item>
@@ -36,7 +36,7 @@
       <el-table-column
         prop="id"
         label="用户ID"
-        width="100">
+      >
       </el-table-column>
       <el-table-column
         prop="name"
@@ -49,7 +49,7 @@
       <el-table-column
         prop="name"
         label="用户名"
-        width="120">
+       >
       </el-table-column>
       <el-table-column
         prop="phone"
@@ -59,7 +59,7 @@
       <el-table-column
         prop="createTime"
         label="注册时间"
-        width="120">
+      >
       </el-table-column>
       <!-- <el-table-column
         prop="name"
@@ -79,6 +79,7 @@
       </el-table-column> -->
       <el-table-column
         prop="address"
+        width="100"
         label="操作">
         <template slot-scope="scope">
           <el-button
@@ -93,7 +94,12 @@
       :visible.sync="dialogVisible"
       width="50%"
     >
-      <el-select v-model="roleIdList" multiple placeholder="请选择">
+      <el-select
+        v-model="roleIdList"
+        multiple
+        placeholder="请选择"
+        style="width: 100%"
+      >
         <el-option
           v-for="item in roles"
           :key="item.id"

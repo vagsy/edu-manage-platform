@@ -6,6 +6,7 @@
       </div>
       <el-form
         ref="form"
+        :inline="true"
         label-width="70px"
         label-position="left"
         :model="filterParams"
@@ -53,12 +54,12 @@
         <el-table-column
           prop="id"
           label="ID"
-          width="50">
+          width="80">
         </el-table-column>
         <el-table-column
           prop="courseName"
           label="课程名称"
-          width="120">
+          width="150">
         </el-table-column>
         <el-table-column
           prop="price"
@@ -91,6 +92,7 @@
         >
           <template slot-scope="scope">
             <el-button
+              size="mini"
               @click="$router.push({
                 name: 'course-edit',
                 params: {
@@ -99,6 +101,7 @@
               })"
             >编辑</el-button>
             <el-button
+              size="mini"
               @click="$router.push({
                 name: 'course-section',
                 params: {
@@ -111,6 +114,7 @@
       </el-table>
       <el-pagination
         background
+        style="text-align: right;"
         layout="prev, pager, next"
         :total="totalCount"
         :disabled="loading"

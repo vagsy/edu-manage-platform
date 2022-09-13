@@ -3,7 +3,7 @@
     <el-card class="box-card">
       <div slot="header" class="clearfix">
         <!-- <span>筛选搜索</span> -->
-        <el-form ref="form" :model="form">
+        <el-form ref="form" :inline="true" :model="form">
           <el-form-item label="角色名称" prop="name">
             <el-input v-model="form.name"></el-input>
           </el-form-item>

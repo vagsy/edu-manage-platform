@@ -3,6 +3,7 @@
     <el-form
       class="login-form"
       ref="form"
+      :inline="true"
       label-position="top"
       :model="form"
       :rules="rules"

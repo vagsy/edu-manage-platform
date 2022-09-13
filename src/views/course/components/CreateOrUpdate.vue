@@ -11,7 +11,7 @@
         ></el-step>
       </el-steps>
     </div>
-    <el-form label-width="80px">
+    <el-form label-width="100px">
       <div v-show="activeStep === 0">
         <el-form-item label="课程名称">
           <el-input v-model="course.courseName"></el-input>
@@ -238,8 +238,10 @@ export default Vue.extend({
     async loadCourse () {
       const { data } = await getCourseById(this.courseId)
       const { activityCourseDTO } = data.data
-      activityCourseDTO.beginTime = moment(activityCourseDTO.beginTime).format('YYYY-MM-DD')
-      activityCourseDTO.endTime = moment(activityCourseDTO.endTime).format('YYYY-MM-DD')
+      if (activityCourseDTO) {
+        activityCourseDTO.beginTime = moment(activityCourseDTO.beginTime).format('YYYY-MM-DD')
+        activityCourseDTO.endTime = moment(activityCourseDTO.endTime).format('YYYY-MM-DD')
+      }
       this.course = data.data
     },
 

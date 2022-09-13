@@ -2,7 +2,7 @@
   <div class="resource-list">
     <el-card class="box-card">
       <div slot="header" class="clearfix">
-        <el-form ref="form" :model="form" label-width="80px">
+        <el-form ref="form" :model="form" :inline="true" label-width="80px">
           <el-form-item prop="name" label="资源名称">
             <el-input v-model="form.name"></el-input>
           </el-form-item>
@@ -44,25 +44,23 @@
         <el-table-column
           type="index"
           label="编号"
-          width="100">
+          :index="hIndex"
+        >
         </el-table-column>
         <el-table-column
           prop="name"
           label="资源名称"
-          width="180">
+        >
         </el-table-column>
         <el-table-column
           prop="url"
-          width="180"
           label="资源路径">
         </el-table-column>
         <el-table-column
           prop="description"
-          width="180"
           label="描述">
         </el-table-column>
         <el-table-column
-          width="180"
           prop="createdTime"
           label="添加时间">
         </el-table-column>
@@ -130,6 +128,10 @@ export default Vue.extend({
   },
 
   methods: {
+    hIndex (index: any) {
+      //     当前序号 + ( 当前页数 - 1 ) * 每页条数 + 1
+      return index + ((this.form.current - 1) * this.form.size) + 1
+    },
     async loadResourceCategories () {
       const { data } = await getResourceCategories()
       this.resourceCategories = data.data
